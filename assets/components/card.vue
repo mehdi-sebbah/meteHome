@@ -1,13 +1,13 @@
 <template>
   <div class="base">
     <div class="headerInfo">
-      <div class="cloud">{{ cloud }}</div>
-      <div class="humidity">{{ humidity }}</div>
-      <div class="wind">{{ wind }}</div>
+      <div class="cloud">{{ meteo.weather.description }}</div>
+      <div class="humidity">{{ meteo.main.humidity }}</div>
+      <div class="wind">{{ meteo.wind.speed }}</div>
     </div>
     <div class="bodyInfo">
-      <div class="temperature">{{ temperature }}</div>
-      <div class="state">{{ state }}</div>
+      <div class="temperature">{{ meteo.main.temp }}</div>
+      <div class="state">{{ meteo.name }}</div>
     </div>
   </div>
 </template>
@@ -63,21 +63,19 @@
 .state {
   font-size: 6rem;
 }
-
-
 </style>
 
 <script>
 export default {
+  props: ["meteo"],
   name: "Card",
-  data() {
-    return {
-      cloud: "ensoleillé",
-      humidity: " 17%",
-      wind: " 18%",
-      temperature: "7°C",
-      state: "⛅",
-    };
+
+  watch: {
+    meteo(newValue, oldValue) {
+      console.log(newValue);
+      console.log(newValue);
+      console.log(this.meteo.name);
+    },
   },
 };
 </script>

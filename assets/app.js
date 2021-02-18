@@ -12,15 +12,6 @@ import './styles/app.css';
 import './bootstrap';
 
 import Vue from 'vue'
-import Card from "./components/Card"
-
-new Vue ({
-    el: "#card",
-    components:{
-        Card
-    },
-    template:"<Card/>"
-})
 
 
 import Form from "./components/Form"
@@ -32,3 +23,24 @@ new Vue ({
     },
     template:"<Form/>"
 })
+import Card from "./components/Card"
+
+new Vue({
+    render(h) {
+      return h(Card, {
+        props: {
+          meteo: this.$el.getAttribute('meteo'),
+        },
+      })
+    },
+    template:"<Card/>"
+  }).$mount('#Card')
+
+/*
+new Vue ({
+    el: "#Card",
+    components:{
+        Card
+    },
+    template:"<Card/>"
+})*/
