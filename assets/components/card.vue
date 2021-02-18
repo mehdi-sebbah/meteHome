@@ -72,7 +72,7 @@ export default {
   name: "Card",
   data() {
     return {
-      cloud: " ensoleillé",
+      cloud: "ensoleillé",
       humidity: " 17%",
       wind: " 18%",
       temperature: "7°C",
