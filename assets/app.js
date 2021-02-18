@@ -21,3 +21,14 @@ new Vue ({
     },
     template:"<Card/>"
 })
+
+
+import Form from "./components/Form"
+
+new Vue ({
+    el: "#Form",
+    components:{
+        Form
+    },
+    template:"<Form/>"
+})
