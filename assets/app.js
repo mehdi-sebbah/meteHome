@@ -12,5 +12,12 @@ import './styles/app.css';
 import './bootstrap';
 
 import Vue from 'vue'
+import Card from "./components/Card"
 
-
+new Vue ({
+    el: "#card",
+    components:{
+        Card
+    },
+    template:"<Card/>"
+})
