@@ -31,11 +31,13 @@ export default {
           this.infoCity = data;
           this.city = "";
         });
+        
       /* axios.post("/call_city", { city: "paris" })
      .then((reponse) => reponse.json())
      .then(data => console.log(data));*/
     },
   },
+
   name: "DemoComponent",
 };
 </script>
