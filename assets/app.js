@@ -12,5 +12,9 @@ import './styles/app.css';
 import './bootstrap';
 
 import Vue from 'vue'
+import DemoComponent from "./components/Component";
 
-
+new Vue({
+    components: { DemoComponent },
+    template: "<DemoComponent />"
+}).$mount("#demoComponent ");
