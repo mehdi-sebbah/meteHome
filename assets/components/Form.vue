@@ -1,30 +1,33 @@
 <template>
   <div id="Form" class="form">
     <input v-model="message" placeholder="Renseigner une ville" />
-    <p>Message is: {{ message }}</p>
-    </div>
+      <p>Message is: {{ message }}</p> 
+    <button type="submit" class="button">Soumettre</button>
+  </div>
 </template>
 
 <style>
-.demo {
-  font-family: sans-serif;
-  border: 1px solid #eee;
-  border-radius: 2px;
-  padding: 20px 30px;
-  margin-top: 1em;
-  margin-bottom: 40px;
-  user-select: none;
-  overflow-x: auto;
+.form {
+  display: flex;
+flex-direction: row-reverse;
+height: 50px;
+}
+.button2 {
+  width: 250px;
+  height: 200px;
+  border: 3px solid black;
+  padding: 20px 20px;
+  border-radius: 15px;
 }
 </style>
 
 <script>
 export default {
-    name: "Form",
-    data() {
+  name: "Form",
+  data() {
     return {
       message: "",
     };
   },
-}
+};
 </script>
