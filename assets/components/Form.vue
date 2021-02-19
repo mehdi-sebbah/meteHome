@@ -55,7 +55,7 @@ export default {
         .then((reponse) => reponse.json())
         .then((data) => {
           this.infoCity = data;
-          console.log(this.infoCity);
+          //console.log(this.infoCity);
           this.city = "";
         });
 
