@@ -1,13 +1,30 @@
 <template>
   <div class="base">
     <div class="headerInfo">
-      <img class="cloud" :src="url" alt="" />
-      <div class="humidity">{{ meteo.main.humidity }}%</div>
-      <div class="wind">{{ meteo.wind.speed }}</div>
+      <div class="cloud">
+        <img class="cloud" :src="cloud" alt="" />
+        <p>{{ meteo.clouds.all }}%</p>
+      </div>
+
+      <div class="wind">
+        <img :src="wind" alt="" />
+        <p>{{ meteo.wind.speed }} m/s</p>
+      </div>
+
+      <div class="humidity">
+        <img :src="humidity" alt="" />
+        <p>{{ meteo.main.humidity }}%</p>
+      </div>
     </div>
     <div class="bodyInfo">
-      <div class="temperature">{{ meteo.main.temp }}</div>
-      <div class="state">{{ meteo.name }}</div>
+      <p class="temperature">{{Math.trunc(meteo.main.temp) }}°C</p>
+      <div class="state">
+        <p class="city">
+          {{ meteo.name }},<span>{{ meteo.sys.country }}</span>
+        </p>
+        <p class="description">{{ meteo.weather[0].description }}</p>
+      </div>
+      <img :src="url" alt="" />
     </div>
   </div>
 </template>
@@ -16,38 +33,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@600;700&display=swap");
 
 .base {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  width: 650px;
-  height: 500px;
-  border: 3px solid black;
+  width: 350px;
+  height: auto;
+  box-shadow: 2px 10px 15px #3333;
+  border-radius: 10px;
   padding: 20px 20px;
-  border-radius: 15px;
-  margin: auto auto;
+  margin: 20px auto 50px auto;
+  background-color: #8dd2d9;
 }
 
 .headerInfo {
   font-family: "Spartan", sans-serif;
   display: flex;
-  justify-content: space-around;
-  /*font-size: 2rem;*/
+  justify-content: space-between;
   margin-top: 10px;
-  margin-bottom: 20px;
 }
 
-.cloud::before {
-  content: "";
-  background-image: "../img/nuage.svg";
+.cloud {
+  display: flex;
+  align-items: center;
 }
-.humidity::before {
-  content: "💧";
+
+.cloud p {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
 }
-.wind::before {
-  content: "💨";
+
+.humidity {
+  display: flex;
+  align-items: end;
+}
+
+.humidity p {
+  margin-left: 10px;
+  color: white;
+}
+
+.wind {
+  display: flex;
+  align-items: end;
+}
+
+.wind p {
+  color: white;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .bodyInfo {
@@ -57,12 +90,25 @@
 }
 
 .temperature {
-  font-size: 6rem;
-  padding: 20px 20px;
+  font-size: 3rem;
+  color: white;
+  padding: 20px 20px 0 20px;
+  margin-bottom: 0;
 }
 
-.state {
-  font-size: 6rem;
+.city {
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.bodyInfo img{
+  margin: 50px 0;
+}
+
+.description {
+  color: white;
+  opacity: 0.8;
 }
 </style>
 
@@ -75,6 +121,9 @@ export default {
   data() {
     return {
       url: "",
+      cloud: "/icons/cloud.png",
+      wind: "/icons/wind.png",
+      humidity: "/icons/humidity.png",
     };
   },
 
@@ -82,41 +131,41 @@ export default {
     logoWeather() {
       console.log("tet");
       switch (this.meteo.weather[0].description) {
-        case "couvert":
-          this.url = "/icons/cloud.png";
+        case "nuageux":
+          this.url = "/icons/icons_desc/nuageux.png";
           break;
         case "ciel dégagé":
-          console.log("ciel clair");
+          this.url = "/icons/icons_desc/sun.png";
           break;
         case "légère pluie":
-          console.log("quelques nuages");
+          this.url = "/icons/icons_desc/rain.png";
           break;
         case "chutes de neige":
-          console.log("nuages dispersés");
+          this.url = "/icons/icons_desc/snow.png";
           break;
         case "peu nuageux":
-          console.log("solei");
+          this.url = "/icons/icons_desc/cloudy.png";
           break;
         case "pluie modérée":
-          console.log("pluie pluie");
+          this.url = "/icons/icons_desc/storm.png";
           break;
         case "brume":
-          console.log("pluie");
+          this.url = "/icons/icons_desc/foggy.png";
           break;
         case "couvert":
-          console.log("orage");
+          this.url = "/icons/icons_desc/heavy-rain.png";
           break;
         case "brouillard":
-          console.log("neiger");
+          this.url = "/icons/icons_desc/foggy.png";
           break;
         case "partiellement nuageux":
-          console.log("pluie");
+          this.url = "/icons/icons_desc/cloudy.png";
           break;
         case "poussière":
-          console.log("orage");
+          this.url = "/icons/icons_desc/sandstorm.png";
           break;
         case "légères chutes de neige":
-          console.log("neiger");
+          this.url = "/icons/icons_desc/snow.png";
           break;
       }
     },
