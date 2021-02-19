@@ -1,13 +1,13 @@
 <template>
   <div class="base">
     <div class="headerInfo">
-      <div class="cloud">{{ cloud }}</div>
-      <div class="humidity">{{ humidity }}</div>
-      <div class="wind">{{ wind }}</div>
+      <img class="cloud" :src="url" alt="" />
+      <div class="humidity">{{ meteo.main.humidity }}%</div>
+      <div class="wind">{{ meteo.wind.speed }}</div>
     </div>
     <div class="bodyInfo">
-      <div class="temperature">{{ temperature }}</div>
-      <div class="state">{{ state }}</div>
+      <div class="temperature">{{ meteo.main.temp }}</div>
+      <div class="state">{{ meteo.name }}</div>
     </div>
   </div>
 </template>
@@ -34,13 +34,14 @@
   font-family: "Spartan", sans-serif;
   display: flex;
   justify-content: space-around;
-  font-size: 2rem;
+  /*font-size: 2rem;*/
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
 .cloud::before {
-  content: "🌞";
+  content: "";
+  background-image: "../img/nuage.svg";
 }
 .humidity::before {
   content: "💧";
@@ -63,21 +64,74 @@
 .state {
   font-size: 6rem;
 }
-
-
 </style>
 
 <script>
 export default {
   name: "Card",
+
+  props: ["meteo"],
+
   data() {
     return {
-      cloud: "ensoleillé",
-      humidity: " 17%",
-      wind: " 18%",
-      temperature: "7°C",
-      state: "⛅",
+      url: "",
     };
+  },
+
+  methods: {
+    logoWeather() {
+      console.log("tet");
+      switch (this.meteo.weather[0].description) {
+        case "couvert":
+          this.url = "/icons/cloud.png";
+          break;
+        case "ciel dégagé":
+          console.log("ciel clair");
+          break;
+        case "légère pluie":
+          console.log("quelques nuages");
+          break;
+        case "chutes de neige":
+          console.log("nuages dispersés");
+          break;
+        case "peu nuageux":
+          console.log("solei");
+          break;
+        case "pluie modérée":
+          console.log("pluie pluie");
+          break;
+        case "brume":
+          console.log("pluie");
+          break;
+        case "couvert":
+          console.log("orage");
+          break;
+        case "brouillard":
+          console.log("neiger");
+          break;
+        case "partiellement nuageux":
+          console.log("pluie");
+          break;
+        case "poussière":
+          console.log("orage");
+          break;
+        case "légères chutes de neige":
+          console.log("neiger");
+          break;
+      }
+    },
+  },
+
+  watch: {
+    meteo: {
+      immediate: true,
+      handler(newValue, oldValue) {
+        console.log(newValue);
+        console.log(newValue);
+        console.log(this.meteo.name);
+        this.logoWeather();
+      },
+    },
   },
 };
 </script>
