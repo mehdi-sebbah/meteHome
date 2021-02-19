@@ -83,8 +83,7 @@ export default {
       console.log("tet");
       switch (this.meteo.weather[0].description) {
         case "couvert":
-          this.url = "/icons/nuage.png";
-          console.log(this.url);
+          this.url = "/icons/cloud.png";
           break;
         case "ciel dégagé":
           console.log("ciel clair");
