@@ -8,61 +8,58 @@
 
 <template>
   <div class="main">
-    <div class="form">
-      <form method="post" v-on:submit.prevent="callApi">
-        <h1>MÉTÉHOME</h1>
+    <form method="post" v-on:submit.prevent="callApi">
+      <h1>MÉTÉHOME</h1>
+      <div class="main_form">
         <label for="city">Entrer une ville</label>
         <input class="input_form" type="text" name="city" v-model="city" />
         <input type="submit" class="button" value="Valider" />
-      </form>
-      <div v-if="Object.keys(infoCity).length !== 0">
-        <card v-bind:meteo="infoCity.data"></card>
       </div>
+    </form>
+    <div class="main_card" v-if="Object.keys(infoCity).length !== 0">
+      <card v-bind:meteo="infoCity.data"></card>
     </div>
   </div>
 </template>
 
 <style>
-.form {
-  margin-top: 30px;
-  font-family: "Spartan", sans-serif;
+.main {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   height: 100%;
-
 }
 
 h1 {
   text-align: center;
-  color: white;
-  font-size: 2rem;
+  color: #8dd2d9;
+  font-size: 3rem;
+  font-weight: 300;
 }
 form {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
-   width: 350px;
-  height: auto;
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
+  width: 300px;
+  height: 100%;
+  padding: 0 20px;
   box-shadow: 2px 10px 15px #3333;
-  background-color: #8dd2d9;
+  background-color: #fff;
 }
 
 form label {
-  color: white;
+  color: #8dd2d9;
   font-size: 2rem;
 }
 
 .input_form {
   font-size: 1.5rem;
-  margin: 15px 0;
-  border: 2px solid white;
+  margin: 30px 0;
+  border: 2px solid #8dd2d9;
   border-radius: 20px;
   background-color: transparent;
-  color: white;
+  color: #8dd2d9;
   outline: none;
 }
 
@@ -71,8 +68,8 @@ form label {
   font-size: 1.5rem;
   border: none;
   border-radius: 15px;
-  background-color: white;
-  color: #8dd2d9;
+  background-color: #8dd2d9;
+  color: #fff;
   cursor: pointer;
   outline: none;
   transition: 0.2s;
@@ -81,6 +78,13 @@ form label {
 .button:hover {
   opacity: 0.5;
   transition: 0.2s;
+}
+
+.main_card{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 </style>
 

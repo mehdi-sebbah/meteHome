@@ -39,7 +39,7 @@
   height: auto;
   box-shadow: 2px 10px 15px #3333;
   border-radius: 10px;
-  padding: 20px 20px;
+  padding: 30px 30px;
   margin: 20px auto 50px auto;
   background-color: #8dd2d9;
 }
@@ -48,7 +48,6 @@
   font-family: "Spartan", sans-serif;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
 .cloud {
@@ -92,7 +91,7 @@
 .temperature {
   font-size: 3rem;
   color: white;
-  padding: 20px 20px 0 20px;
+  padding: 30px 20px 10px 20px;
   margin-bottom: 0;
 }
 
