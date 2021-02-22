@@ -40,7 +40,7 @@
   box-shadow: 2px 10px 15px #3333;
   border-radius: 10px;
   padding: 30px 30px;
-  margin: 20px auto 50px auto;
+  margin: auto;
   background-color: #8dd2d9;
 }
 
@@ -63,7 +63,7 @@
 
 .humidity {
   display: flex;
-  align-items: end;
+  align-items: center;
 }
 
 .humidity p {
@@ -73,7 +73,7 @@
 
 .wind {
   display: flex;
-  align-items: end;
+  align-items: center;
 }
 
 .wind p {
@@ -85,7 +85,7 @@
 .bodyInfo {
   font-family: "Spartan", sans-serif;
   text-align: center;
-  margin: auto auto;
+  margin: 70px auto 20px auto;
 }
 
 .temperature {
@@ -102,7 +102,7 @@
 }
 
 .bodyInfo img{
-  margin: 50px 0;
+  margin-top: 100px;
 }
 
 .description {

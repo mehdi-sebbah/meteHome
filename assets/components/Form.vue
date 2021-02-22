@@ -43,7 +43,7 @@ form {
   text-align: center;
   width: 300px;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 60px;
   box-shadow: 2px 10px 15px #3333;
   background-color: #fff;
 }
@@ -55,9 +55,12 @@ form label {
 
 .input_form {
   font-size: 1.5rem;
+  text-align: center;
   margin: 30px 0;
   border: 2px solid #8dd2d9;
-  border-radius: 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   background-color: transparent;
   color: #8dd2d9;
   outline: none;
@@ -67,7 +70,7 @@ form label {
   padding: 10px 25px;
   font-size: 1.5rem;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
   background-color: #8dd2d9;
   color: #fff;
   cursor: pointer;
@@ -85,6 +88,37 @@ form label {
   align-items: center;
   height: 100%;
   width: 100%;
+}
+
+@media (max-width: 900px){
+	.main {
+		flex-direction: column;
+	}
+	form{
+		width: 100%;
+    padding: 25px 0;
+	}
+  .main_form{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .main_card{
+    height: auto;
+  }
+
+  .base{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .headerInfo{
+    padding: 10px 20px 0;
+  }
 }
 </style>
 
